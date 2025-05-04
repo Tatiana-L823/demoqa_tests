@@ -1,20 +1,48 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.*;
+package tests;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import org.junit.jupiter.api.*;
 
 public class JUnitTest {
 
-    @Test
-    void firstTest() {
-    Assertions.assertTrue(3>2);
+int result;
+
+@BeforeAll
+static void beforeAll() {
+    System.out.println("###   beforeAll()\n");
+}
+    @BeforeEach
+    void beforeEach() {
+        System.out.println("###   beforeEach()");
+        result = getResult();
+    }
+
+    private int getResult() {
+        return 3;
+    }
+
+    @AfterEach
+    void afterEach() {
+        System.out.println("###   afterEach()\n");
+        result = 0;
+    }
+    @AfterAll
+    static void afterAll() {
+    System.out.println("\n### afterAll()\n");
     }
     @Test
-    void simpleComparisonTest() {
-        Assertions.assertTrue(3 > 2, "Expected 3 to be greater than 2");
+    void firstTest() {
+     System.out.println("###   firstTest()");
+    Assertions.assertTrue(result>2);
+    }
+    @Test
+    void secondTest() {
+        System.out.println("###   secondTest()");
+        Assertions.assertTrue(result>2);
+    }
+    @Test
+    void thirdTest() {
+        System.out.println("###   thirdTest()");
+        Assertions.assertTrue(result>2);
     }
 
 }
