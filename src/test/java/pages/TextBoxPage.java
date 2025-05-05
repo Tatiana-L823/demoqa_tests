@@ -1,9 +1,23 @@
 package pages;
 
+import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
+
+    SelenideElement
+        userNameInput = $("#userName"),
+        userEmailInput = $("#userEmail"),
+        currentAddressInput = $("#currentAddress"),
+        permanentAddressInput = $("#permanentAddress"),
+        submitButton = $("#submit"),
+        outputName = $("#output #name"),
+        outputEmail = $("#output #email"),
+        outputCurrentAddress = $("#output #currentAddress"),
+        outputPermanentAddress = $("#output #permanentAddress");
+
 
 
     public TextBoxPage openTextBoxPage() {
@@ -12,22 +26,22 @@ public class TextBoxPage {
     }
 
     public TextBoxPage setUserName(String value) {
-        $("#userName").setValue(value);
+        userNameInput.setValue(value);
         return this;
     }
 
     public TextBoxPage setEmail(String value) {
-        $("#userEmail").setValue(value);
+        userEmailInput.setValue(value);
         return this;
     }
 
     public TextBoxPage setCurrentAddress(String value) {
-        $("#currentAddress").setValue(value);
+        currentAddressInput.setValue(value);
         return this;
     }
 
     public TextBoxPage setPermanentAddress(String value) {
-        $("#permanentAddress").setValue(value);
+        permanentAddressInput.setValue(value);
         return this;
     }
 
@@ -37,51 +51,48 @@ public class TextBoxPage {
     }
 
     public TextBoxPage clickSubmitButton() {
-        $("#submit").click();
+        submitButton.click();
         return this;
     }
 
-    public TextBoxPage setUserNa1me(String value) {
-        $("#userName").setValue(value);
-        return this;
-    }
+
 
     public TextBoxPage checkOutputName(String value) {
-        $("#output #name").shouldHave(text(value));
+        outputName.shouldHave(text(value));
         return this;
     }
 
 
     public TextBoxPage checkOutputEmail(String value) {
-        $("#output #email").shouldHave(text(value));
+        outputEmail.shouldHave(text(value));
         return this;
     }
 
     public TextBoxPage checkOutputCurrentAddress(String value) {
-        $("#output #currentAddress").shouldHave(text(value));
+        outputCurrentAddress.shouldHave(text(value));
         return this;
 
     }
 
     public TextBoxPage checkOutputPermanentAddress(String value) {
-        $("#output #permanentAddress").shouldHave(text(value));
+        outputPermanentAddress.shouldHave(text(value));
         return this;
     }
     public TextBoxPage checkOutputNameNotExist() {
-        $("#output #name").shouldNotBe();
+        outputName.shouldNotBe();
         return this;
     }
     public TextBoxPage checkOutputEmailNotExist() {
-        $("#output #email").shouldNotBe();
+        outputEmail.shouldNotBe();
         return this;
     }
     public TextBoxPage checkOutputCurrentAddressNotExist() {
-        $("#output #currentAddress").shouldNotBe();
+        outputCurrentAddress.shouldNotBe();
          return this;
     }
 
     public TextBoxPage checkOutputPermanentAddressNotExist() {
-         $("#output #permanentAddress").shouldNotBe();
+        outputPermanentAddress.shouldNotBe();
           return this;
     }
 }
