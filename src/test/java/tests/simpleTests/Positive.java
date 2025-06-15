@@ -58,6 +58,3 @@ public class Positive {
         assertTrue(true);
     }
 }
-
-public class Positive {
-}

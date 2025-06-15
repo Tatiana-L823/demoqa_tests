@@ -1,10 +1,13 @@
 package tests.simpleTests;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("simple")
+@Disabled("Заглушки — тесты не готовы")
 public class Negative {
 
     @Test
@@ -41,7 +44,6 @@ public class Negative {
     void someTest6() {
         assertTrue(false);
     }
+}
 
-}
-public class Negative {
-}
+

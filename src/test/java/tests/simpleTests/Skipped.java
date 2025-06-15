@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("simple")
-public class SkippedTests {
+public class Skipped {
 
     @Test
     @Disabled
@@ -20,6 +20,4 @@ public class SkippedTests {
         assertTrue(false);
     }
 
-}
-public class Skipped {
 }
